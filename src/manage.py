@@ -2,14 +2,17 @@ from sanic import html
 
 from middlewares.my_middleware import print_on_request, print_on_response
 from src import app
-
+from models import system, user
 app.register_middleware(print_on_request, attach_to='request')
 app.register_middleware(print_on_response, attach_to='response')
+# app.register_middleware(inject_session, attach_to='response')
+# app.register_middleware(close_session, attach_to='response')
+
+from views import api
+
+app.blueprint(api)
 
 
-# 注册各个模块
-
-# 混合添加单个函数
 async def hello(request):
     return html("<h1>Hello</h1>")
 
@@ -17,4 +20,5 @@ async def hello(request):
 app.add_route(hello, "/demo/hello", methods=['GET'])
 
 # 启动服务
-app.run(host="0.0.0.0", port=8000, debug=True)
+if __name__ == '__main__':
+    app.run(host="0.0.0.0", port=9999, debug=True)

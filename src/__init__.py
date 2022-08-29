@@ -1,6 +1,5 @@
 import sanic
 from sanic import Sanic, Blueprint
-
 from config import config
 from exception import BadRequest, Unauthorized, Forbidden, NotFound, RequestTimeout, ServerError
 
@@ -16,15 +15,5 @@ class MyBlueprint(Blueprint):
 
 sanic.Blueprint = MyBlueprint
 
-
-def create_app():
-    from .views import api
-    app.blueprint(api)
-
-    return app
-
-
 all_json_errors = [BadRequest, Unauthorized, Forbidden,
                    NotFound, RequestTimeout, ServerError]
-
-app = create_app()

@@ -1,7 +1,10 @@
-from sqlalchemy import Column, Integer, DateTime
-from sqlalchemy.orm import declarative_base
+from sqlalchemy import Column, Integer, DateTime, create_engine
+from sqlalchemy.ext.declarative import declarative_base
 
-Base = declarative_base()
+from src import app
+
+engine = create_engine(app.config.SQLALCHEMY_DATABASE_URI)
+Base = declarative_base(engine)
 
 
 class BaseModel(Base):

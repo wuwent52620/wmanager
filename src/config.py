@@ -1,48 +1,48 @@
 import os
-from sanic.config import Config
+
 from elasticsearch6 import Elasticsearch
+
+from utils.parser import Parser
+
+basedir = os.path.abspath(os.path.dirname(__file__))
 
 
 class ProductionConfig:
+    parser = Parser(env='product')
     """Uses production database server."""
-    ES = Elasticsearch('http://172.16.0.147:9200')
-
-    DIALECT = 'mysql'
-    DRIVER = 'aiomysql'
-    USERNAME = 'user'
-    PASSWORD = '*************'
-    HOST = 'rm-****'
-    PORT = '3306'
-    DATABASE = '****'
-
-    SQLALCHEMY_DATABASE_URI = '{}+{}://{}:{}@{}:{}/{}?charset=utf8mb4'.format(
-        DIALECT,
-        DRIVER,
-        USERNAME,
-        PASSWORD,
-        HOST,
-        PORT,
-        DATABASE
-    )
-
-
-class DevelopmentConfig:
-    APP_ID = '*************'
-    APP_SECRET = '*******************'
-    # 密钥配置
-    SECRET_KEY = '1111222'
-    DEBUG = True
-    ES = Elasticsearch('http://10.168.1.216:9200')
+    ES = Elasticsearch(f'http://{parser.es.host}:{parser.es.port}')
 
     SQLALCHEMY_DATABASE_URI = '{}+{}://{}:{}@{}:{}/{}?charset=utf8mb4'.format(
         'mysql',
-        'aiomysql',
-        'root',
-        '123456',
-        '192.168.2.81',
-        '3307',
-        'su'
+        'pymysql',
+        parser.mysql.user,
+        parser.mysql.password,
+        parser.mysql.host,
+        parser.mysql.port,
+        parser.mysql.db
     )
+    SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'migrations')
+
+
+class DevelopmentConfig:
+    parser = Parser(env='develop')
+    APP_ID = '*************'
+    APP_SECRET = '*******************'
+    # 密钥配置
+    SECRET_KEY = '123456'
+    DEBUG = True
+    ES = Elasticsearch(f'http://{parser.es.host}:{parser.es.port}')
+
+    SQLALCHEMY_DATABASE_URI = '{}+{}://{}:{}@{}:{}/{}?charset=utf8mb4'.format(
+        'mysql',
+        'pymysql',
+        parser.mysql.user,
+        parser.mysql.password,
+        parser.mysql.host,
+        parser.mysql.port,
+        parser.mysql.db
+    )
+    SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'migrations')
 
 
 config = {

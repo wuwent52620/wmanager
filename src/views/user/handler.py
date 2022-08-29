@@ -1,23 +1,32 @@
 import time
 
-from sanic import text, Blueprint
+from sanic import text, Blueprint, json
+from sqlalchemy import select
+from sqlalchemy.orm import selectinload
+
+from models.user import User
 
 blue = Blueprint(__name__, url_prefix='/')
 
 
-@blue.route('del', ["GET"])
-async def sync_handler0(request):
-    time.sleep(0.1)
-    return text("I said foo! 111")
+@blue.post("/user")
+async def create_user(request):
+    session = request.ctx.session
+    async with session.begin():
+        person = User(name="foo")
+        session.add_all([person])
+    return json(person.to_dict())
 
 
-@blue.route('get', ["GET"])
-async def sync_handler1(request):
-    time.sleep(0.1)
-    return text("I said foo! 222")
+@blue.get("/user/<pk:int>")
+async def get_user(request, pk):
+    session = request.ctx.session
+    async with session.begin():
+        stmt = select(User).where(User.id == pk).options(selectinload(User.cars))
+        result = await session.execute(stmt)
+        person = result.scalar()
 
+    if not person:
+        return json({})
 
-@blue.route('add', ["GET"])
-async def sync_handler2(request):
-    time.sleep(0.1)
-    return text("I said foo! 333")
+    return json(person.to_dict())
