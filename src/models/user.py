@@ -11,4 +11,4 @@ class User(BaseModel):
     level = Column(Integer, comment='等级')
 
     def to_dict(self):
-        return {"id": self.id, "username": self.username, "password": self.password}
+        return {"id": self.id, "username": self.username, "password": self.password, 'level': self.level}

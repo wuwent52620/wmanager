@@ -21,11 +21,26 @@ class ProductionConfig:
         parser.mysql.port,
         parser.mysql.db
     )
+    SQLALCHEMY_DATABASE_AIO = '{}+{}://{}:{}@{}:{}/{}?charset=utf8mb4'.format(
+        'mysql',
+        'aiomysql',
+        parser.mysql.user,
+        parser.mysql.password,
+        parser.mysql.host,
+        parser.mysql.port,
+        parser.mysql.db
+    )
     SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'migrations')
+    REDIS = {
+        "host": parser.redis.host,
+        "port": parser.redis.port,
+        "poolsize": parser.redis.poolsize,
+        "expire": parser.redis.expire
+    }
 
 
 class DevelopmentConfig:
-    parser = Parser(env='develop')
+    parser = Parser(env='develop1')
     APP_ID = '*************'
     APP_SECRET = '*******************'
     # 密钥配置
@@ -42,7 +57,22 @@ class DevelopmentConfig:
         parser.mysql.port,
         parser.mysql.db
     )
+    SQLALCHEMY_DATABASE_AIO = '{}+{}://{}:{}@{}:{}/{}?charset=utf8mb4'.format(
+        'mysql',
+        'aiomysql',
+        parser.mysql.user,
+        parser.mysql.password,
+        parser.mysql.host,
+        parser.mysql.port,
+        parser.mysql.db
+    )
     SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'migrations')
+    REDIS = {
+        "host": parser.redis.host,
+        "port": parser.redis.port,
+        "poolsize": parser.redis.poolsize,
+        "expire": parser.redis.expire
+    }
 
 
 config = {

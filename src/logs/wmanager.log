@@ -1,2 +1,87 @@
 2022-08-25 23:59:05,058 manage.py 3 INFO werqwerwerw
 2022-08-25 23:59:09,151 manage.py 3 INFO werqwerwerw
+2022-08-31 11:10:49,579 selector_events.py 53 DEBUG Using selector: SelectSelector
+2022-08-31 11:10:49,609 base_events.py 1399 INFO <Server sockets=[<socket.socket fd=420, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('0.0.0.0', 9999)>]> is serving
+2022-08-31 11:11:26,448 base_events.py 602 DEBUG Close <_WindowsSelectorEventLoop running=False closed=False debug=True>
+2022-08-31 11:11:55,197 selector_events.py 53 DEBUG Using selector: SelectSelector
+2022-08-31 11:11:55,213 base_events.py 1399 INFO <Server sockets=[<socket.socket fd=812, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('0.0.0.0', 9999)>]> is serving
+2022-08-31 11:12:20,750 base_events.py 1729 DEBUG poll 100.000 ms took 16.000 ms: 1 events
+2022-08-31 11:12:20,751 selector_events.py 159 DEBUG <Server sockets=[<socket.socket fd=812, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('0.0.0.0', 9999)>]> got a new connection from ('127.0.0.1', 57735): <socket.socket fd=832, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9999), raddr=('127.0.0.1', 57735)>
+2022-08-31 11:12:20,775 base_events.py 940 DEBUG connect <socket.socket fd=428, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6> to ('127.0.0.1', 3306)
+2022-08-31 11:12:20,778 base_events.py 1729 DEBUG poll 53.000 ms took 0.000 ms: 1 events
+2022-08-31 11:12:20,782 base_events.py 987 DEBUG <socket.socket fd=428, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 57736), raddr=('127.0.0.1', 3306)> connected to 127.0.0.1:3306: (<_SelectorSocketTransport fd=428 read=polling write=<idle, bufsize=0>>, <asyncio.streams.StreamReaderProtocol object at 0x000001A02DB577C8>)
+2022-08-31 11:12:20,782 selector_events.py 756 DEBUG <_SelectorSocketTransport fd=428 read=idle write=<idle, bufsize=0>> pauses reading
+2022-08-31 11:12:20,783 selector_events.py 764 DEBUG <_SelectorSocketTransport fd=428 read=polling write=<idle, bufsize=0>> resumes reading
+2022-08-31 11:12:20,783 selector_events.py 756 DEBUG <_SelectorSocketTransport fd=428 read=idle write=<idle, bufsize=0>> pauses reading
+2022-08-31 11:12:20,784 selector_events.py 764 DEBUG <_SelectorSocketTransport fd=428 read=polling write=<idle, bufsize=0>> resumes reading
+2022-08-31 11:12:20,809 base_events.py 1729 DEBUG poll 53.000 ms took 31.000 ms: 1 events
+2022-08-31 11:12:20,816 base_events.py 1729 DEBUG poll 22.000 ms took 0.000 ms: 1 events
+2022-08-31 11:12:20,825 base_events.py 1729 DEBUG poll 6.000 ms took 0.000 ms: 1 events
+2022-08-31 11:12:20,841 base_events.py 1729 DEBUG poll 100.000 ms took 0.000 ms: 1 events
+2022-08-31 11:12:20,849 base_events.py 1729 DEBUG poll 100.000 ms took 15.000 ms: 1 events
+2022-08-31 11:12:20,856 base_events.py 1729 DEBUG poll 85.000 ms took 0.000 ms: 1 events
+2022-08-31 11:12:20,860 base_events.py 1729 DEBUG poll 85.000 ms took 0.000 ms: 1 events
+2022-08-31 11:12:20,863 base_events.py 1729 DEBUG poll 85.000 ms took 0.000 ms: 1 events
+2022-08-31 11:12:20,867 base_events.py 1729 DEBUG poll 69.000 ms took 0.000 ms: 1 events
+2022-08-31 11:12:20,870 base_events.py 1729 DEBUG poll 69.000 ms took 0.000 ms: 1 events
+2022-08-31 11:12:20,883 base_events.py 1729 DEBUG poll 69.000 ms took 16.000 ms: 1 events
+2022-08-31 11:12:20,887 base_events.py 1729 DEBUG poll 53.000 ms took 0.000 ms: 1 events
+2022-08-31 11:12:20,890 base_events.py 1729 DEBUG poll 53.000 ms took 0.000 ms: 1 events
+2022-08-31 11:14:17,241 base_events.py 1729 DEBUG poll 100.000 ms took 31.000 ms: 1 events
+2022-08-31 11:14:17,241 selector_events.py 159 DEBUG <Server sockets=[<socket.socket fd=812, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('0.0.0.0', 9999)>]> got a new connection from ('127.0.0.1', 57785): <socket.socket fd=520, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9999), raddr=('127.0.0.1', 57785)>
+2022-08-31 11:14:17,259 base_events.py 1729 DEBUG poll 53.000 ms took 16.000 ms: 1 events
+2022-08-31 11:14:17,264 base_events.py 1729 DEBUG poll 37.000 ms took 0.000 ms: 1 events
+2022-08-31 11:14:17,268 base_events.py 1729 DEBUG poll 37.000 ms took 0.000 ms: 1 events
+2022-08-31 11:14:19,285 base_events.py 1729 DEBUG poll 100.000 ms took 15.000 ms: 1 events
+2022-08-31 11:14:19,288 base_events.py 1729 DEBUG poll 69.000 ms took 0.000 ms: 1 events
+2022-08-31 11:14:19,293 base_events.py 1729 DEBUG poll 69.000 ms took 0.000 ms: 1 events
+2022-08-31 11:14:19,294 base_events.py 1729 DEBUG poll 69.000 ms took 0.000 ms: 1 events
+2022-08-31 11:14:23,784 base_events.py 1729 DEBUG poll 85.000 ms took 47.000 ms: 1 events
+2022-08-31 11:14:23,789 base_events.py 1729 DEBUG poll 22.000 ms took 0.000 ms: 1 events
+2022-08-31 11:14:23,793 base_events.py 1729 DEBUG poll 22.000 ms took 0.000 ms: 1 events
+2022-08-31 11:14:23,795 base_events.py 1729 DEBUG poll 22.000 ms took 0.000 ms: 1 events
+2022-08-31 11:14:25,159 base_events.py 1729 DEBUG poll 100.000 ms took 47.000 ms: 1 events
+2022-08-31 11:14:25,164 base_events.py 1729 DEBUG poll 37.000 ms took 0.000 ms: 1 events
+2022-08-31 11:14:25,167 base_events.py 1729 DEBUG poll 37.000 ms took 0.000 ms: 1 events
+2022-08-31 11:14:25,169 base_events.py 1729 DEBUG poll 37.000 ms took 0.000 ms: 1 events
+2022-08-31 11:14:54,792 base_events.py 602 DEBUG Close <_WindowsSelectorEventLoop running=False closed=False debug=True>
+2022-08-31 11:15:01,096 selector_events.py 53 DEBUG Using selector: SelectSelector
+2022-08-31 11:15:01,118 base_events.py 1399 INFO <Server sockets=[<socket.socket fd=820, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('0.0.0.0', 9999)>]> is serving
+2022-08-31 11:15:07,333 base_events.py 1729 DEBUG poll 100.000 ms took 31.000 ms: 1 events
+2022-08-31 11:15:07,333 selector_events.py 159 DEBUG <Server sockets=[<socket.socket fd=820, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('0.0.0.0', 9999)>]> got a new connection from ('127.0.0.1', 57841): <socket.socket fd=880, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9999), raddr=('127.0.0.1', 57841)>
+2022-08-31 11:16:04,693 base_events.py 602 DEBUG Close <_WindowsSelectorEventLoop running=False closed=False debug=True>
+2022-08-31 11:16:10,167 selector_events.py 53 DEBUG Using selector: SelectSelector
+2022-08-31 11:16:10,201 base_events.py 1399 INFO <Server sockets=[<socket.socket fd=888, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('0.0.0.0', 9999)>]> is serving
+2022-08-31 11:16:14,356 base_events.py 1729 DEBUG poll 100.000 ms took 62.000 ms: 1 events
+2022-08-31 11:16:14,357 selector_events.py 159 DEBUG <Server sockets=[<socket.socket fd=888, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('0.0.0.0', 9999)>]> got a new connection from ('127.0.0.1', 57903): <socket.socket fd=956, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9999), raddr=('127.0.0.1', 57903)>
+2022-08-31 11:17:43,997 selector_events.py 53 DEBUG Using selector: SelectSelector
+2022-08-31 11:17:44,028 base_events.py 1399 INFO <Server sockets=[<socket.socket fd=412, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('0.0.0.0', 9999)>]> is serving
+2022-08-31 11:17:49,849 base_events.py 1729 DEBUG poll 100.000 ms took 32.000 ms: 1 events
+2022-08-31 11:17:49,850 selector_events.py 159 DEBUG <Server sockets=[<socket.socket fd=412, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('0.0.0.0', 9999)>]> got a new connection from ('127.0.0.1', 57965): <socket.socket fd=652, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9999), raddr=('127.0.0.1', 57965)>
+2022-08-31 11:22:48,416 base_events.py 602 DEBUG Close <_WindowsSelectorEventLoop running=False closed=False debug=True>
+2022-08-31 11:27:21,986 selector_events.py 53 DEBUG Using selector: SelectSelector
+2022-08-31 11:27:22,022 base_events.py 1399 INFO <Server sockets=[<socket.socket fd=868, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('0.0.0.0', 9999)>]> is serving
+2022-08-31 11:27:26,767 base_events.py 1729 DEBUG poll 100.000 ms took 110.000 ms: 1 events
+2022-08-31 11:27:26,767 selector_events.py 159 DEBUG <Server sockets=[<socket.socket fd=868, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('0.0.0.0', 9999)>]> got a new connection from ('127.0.0.1', 58283): <socket.socket fd=988, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9999), raddr=('127.0.0.1', 58283)>
+2022-08-31 11:29:59,251 base_events.py 1767 WARNING Executing <Handle <TaskWakeupMethWrapper object at 0x000001D97DE7A408>(<Future finis...events.py:391>) created at c:\users\wuwentox\appdata\local\programs\python\python37\lib\asyncio\locks.py:272> took 152.469 seconds
+2022-08-31 11:33:16,785 base_events.py 602 DEBUG Close <_WindowsSelectorEventLoop running=False closed=False debug=True>
+2022-08-31 11:33:25,787 selector_events.py 53 DEBUG Using selector: SelectSelector
+2022-08-31 11:33:25,818 base_events.py 1399 INFO <Server sockets=[<socket.socket fd=808, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('0.0.0.0', 9999)>]> is serving
+2022-08-31 11:33:29,258 selector_events.py 159 DEBUG <Server sockets=[<socket.socket fd=808, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('0.0.0.0', 9999)>]> got a new connection from ('127.0.0.1', 58567): <socket.socket fd=904, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9999), raddr=('127.0.0.1', 58567)>
+2022-08-31 11:34:03,547 base_events.py 1767 WARNING Executing <Handle <TaskWakeupMethWrapper object at 0x0000022A4B59BBE8>(<Future finis...events.py:391>) created at c:\users\wuwentox\appdata\local\programs\python\python37\lib\asyncio\locks.py:272> took 34.265 seconds
+2022-08-31 11:34:16,924 base_events.py 1729 DEBUG poll 100.000 ms took 47.000 ms: 1 events
+2022-08-31 11:34:16,925 selector_events.py 159 DEBUG <Server sockets=[<socket.socket fd=808, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('0.0.0.0', 9999)>]> got a new connection from ('127.0.0.1', 58609): <socket.socket fd=968, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9999), raddr=('127.0.0.1', 58609)>
+2022-08-31 11:35:04,300 base_events.py 1767 WARNING Executing <Handle <TaskWakeupMethWrapper object at 0x0000022A4B59BBE8>(<Future finis...events.py:391>) created at c:\users\wuwentox\appdata\local\programs\python\python37\lib\asyncio\locks.py:272> took 47.375 seconds
+2022-08-31 11:35:04,432 base_events.py 602 DEBUG Close <_WindowsSelectorEventLoop running=False closed=False debug=True>
+2022-08-31 11:35:12,109 selector_events.py 53 DEBUG Using selector: SelectSelector
+2022-08-31 11:35:12,140 base_events.py 1399 INFO <Server sockets=[<socket.socket fd=876, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('0.0.0.0', 9999)>]> is serving
+2022-08-31 11:35:15,219 base_events.py 1729 DEBUG poll 100.000 ms took 47.000 ms: 1 events
+2022-08-31 11:35:15,221 selector_events.py 159 DEBUG <Server sockets=[<socket.socket fd=876, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('0.0.0.0', 9999)>]> got a new connection from ('127.0.0.1', 58650): <socket.socket fd=696, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9999), raddr=('127.0.0.1', 58650)>
+2022-08-31 11:46:06,084 selector_events.py 53 DEBUG Using selector: SelectSelector
+2022-08-31 11:46:06,099 base_events.py 1399 INFO <Server sockets=[<socket.socket fd=404, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('0.0.0.0', 9999)>]> is serving
+2022-08-31 11:47:52,537 base_events.py 602 DEBUG Close <_WindowsSelectorEventLoop running=False closed=False debug=True>
+2022-08-31 11:47:56,081 selector_events.py 53 DEBUG Using selector: SelectSelector
+2022-08-31 11:47:56,096 base_events.py 1399 INFO <Server sockets=[<socket.socket fd=484, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('0.0.0.0', 9999)>]> is serving
+2022-08-31 11:47:59,376 base_events.py 1729 DEBUG poll 100.000 ms took 47.000 ms: 1 events
+2022-08-31 11:47:59,376 selector_events.py 159 DEBUG <Server sockets=[<socket.socket fd=484, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('0.0.0.0', 9999)>]> got a new connection from ('127.0.0.1', 52068): <socket.socket fd=764, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9999), raddr=('127.0.0.1', 52068)>
+2022-08-31 11:50:46,187 base_events.py 602 DEBUG Close <_WindowsSelectorEventLoop running=False closed=False debug=True>
