@@ -9,7 +9,6 @@ from src import app
 from models import system, user
 
 bind = create_async_engine(app.config.SQLALCHEMY_DATABASE_AIO)
-
 _base_model_session_ctx = ContextVar("session")
 
 app.register_middleware(print_on_request, attach_to='request')
