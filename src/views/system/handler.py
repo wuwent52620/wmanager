@@ -1,5 +1,4 @@
-from sanic import json, Blueprint
-from sqlalchemy import select
+from sanic import Blueprint
 
 from auth import login_required
 from authorization import level_required
@@ -9,56 +8,59 @@ blue = Blueprint(__name__, url_prefix='/')
 
 
 @blue.post("create")
+@login_required
 async def create_system(request):
     session = request.ctx.session
-    async with session.begin():
-        obj = System(**request.json)
-        session.add_all([obj])
-    return json(obj.to_dict())
+    return await System.insert(request.json, session=session)
 
 
-@blue.delete("delete")
+@blue.post("creates")
+@login_required
+async def create_systems(request):
+    session = request.ctx.session
+    return await System.insert_batch(request.json, session=session)
+
+
+@blue.post("delete")
+@login_required
+@level_required(3)
 async def delete_systems(request):
     session = request.ctx.session
-    async with session.begin():
-        session.query(System).filter(System.id.in_(*request.json)).delete(synchronize_session=False)
-    return json(json(f"delete systems ({request.json}) successful"))
+    return await System.delete_batch(request.json, session)
 
 
 @blue.delete("delete/<pk:int>")
+@login_required
+@level_required(3)
 async def delete_system(request, pk):
     session = request.ctx.session
-    async with session.begin():
-        session.query(System).filter(System.id == pk).delete()
-    return json(f"delete system ({pk}) successful")
+    return await System.delete_by_id(pk, session=session)
 
 
 @blue.get("get/<pk:int>")
-@level_required(1)
+@login_required
 async def get_system(request, pk):
     session = request.ctx.session
-    async with session.begin():
-        stmt = select(System).where(System.id == pk)
-        result = await session.execute(stmt)
-        obj = result.scalar()
-
-    if not obj:
-        return json({})
-
-    return json(obj.to_dict())
+    return await System.read_one_by_id(pk, session)
 
 
 @blue.get("get")
-@level_required(3)
 @login_required
+@level_required(3)
 async def get_systems(request):
     session = request.ctx.session
-    async with session.begin():
-        stmt = select(System).filter()
-        result = await session.execute(stmt)
-        objs = result.fetchall()
+    return await System.read_all(session)
 
-    if not objs:
-        return json({})
 
-    return json([obj[0].to_dict() for obj in objs])
+@blue.get("page")
+@login_required
+async def page(request):
+    session = request.ctx.session
+    return await System.read_all_pagination(request.args, session=session)
+
+
+@blue.post("update/<pk:int>")
+@login_required
+async def update_system(request, pk):
+    session = request.ctx.session
+    return await System.update(pk, request.json, session)

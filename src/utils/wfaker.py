@@ -1,4 +1,4 @@
-from pprint import pprint
+from random import randint
 
 from faker import Faker
 
@@ -14,7 +14,10 @@ class FakeGen(object):
         return self
 
     def __next__(self):
-        return eval(f"fake.{self.__attr}(**self.kwargs)")
+        if isinstance(self.__attr, str):
+            return eval(f"fake.{self.__attr}(**self.kwargs)")
+        else:
+            return self.__attr()
 
 
 class WFaker(object):
@@ -23,6 +26,8 @@ class WFaker(object):
     random_str_12 = FakeGen("pystr", min_chars=None, max_chars=12)
     random_int_1_3 = FakeGen("random_int", min=1, max=3)
     single_words_7 = FakeGen("sentence", nb_words=7, variable_nb_words=True, ext_word_list=None)
+    custom_1_2 = FakeGen(lambda: randint(1, 2))
+    custom_bool = FakeGen(lambda: bool(randint(0, 1)))
 
     def __init__(self):
         self.add_attr()

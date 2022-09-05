@@ -1,18 +1,8 @@
 import time
 from functools import wraps
+from threading import Lock
 
-import jwt
 from sanic import text
-
-
-def check_token(request):
-    """ 校验token是否有效 """
-    try:
-        jwt.decode(request.headers.get('token'), request.app.config.SECRET, algorithms=["HS256"])
-    except jwt.exceptions.InvalidTokenError:
-        return False
-    else:
-        return True
 
 
 def login_required(wrapped):
@@ -21,9 +11,9 @@ def login_required(wrapped):
     def decorator(f):
         @wraps(f)
         async def decorated_function(request, *args, **kwargs):
-            is_authenticated = check_token(request)
+            user_id = w_user.uid
 
-            if is_authenticated:
+            if user_id > 0:
                 response = await f(request, *args, **kwargs)
                 return response
             else:
@@ -36,7 +26,7 @@ def login_required(wrapped):
 
 def token_data(data: dict):
     now_time = int(time.time())
-    expire_time = int(time.time()) + 30
+    expire_time = int(time.time()) + 60 * 60 * 24 * 3
     dic = {
         "exp": expire_time,
         "iat": now_time,
@@ -47,16 +37,37 @@ def token_data(data: dict):
 
 class User(object):
     __instance__ = None
+    __slots__ = ['uid', 'name', 'level', 'tid']
 
     def __new__(cls, *args, **kwargs):
         if not cls.__instance__:
             cls.__instance__ = super().__new__(cls)
         return cls.__instance__
 
-    def __init__(self, uid, name, level):
+    def __init__(self, uid, name, level, tid):
         self.uid = uid
         self.name = name
         self.level = level
+        self.tid = tid
+
+    def to_dict(self):
+        return {'uid': self.uid, 'name': self.name, 'level': self.level, 'tid': self.tid}
 
 
-w_user = User(-1, -1, -1)
+w_user = User(-1, -1, -1, -1)
+
+
+def clean_user():
+    with Lock():
+        w_user.uid = -1
+        w_user.name = -1
+        w_user.level = -1
+        w_user.tid = -1
+
+
+def fill_user(data):
+    with Lock():
+        w_user.uid = data['uid']
+        w_user.name = data['name']
+        w_user.level = data['level']
+        w_user.tid = data['tid']

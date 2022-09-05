@@ -3,6 +3,7 @@ from collections import OrderedDict
 from sqlalchemy import create_engine, delete, insert
 from sqlalchemy.orm import sessionmaker
 
+from models import system
 from src import config
 from utils.wfaker import WFaker
 
@@ -36,6 +37,8 @@ def __gen_data(**kw):
 
 if __name__ == '__main__':
     # print(OrderedDict(**{'a': 1, 'b': 2, 'c': 3}).keys())
-    data = {'username': "random_str_12", "password": "random_str_12", "level": "random_int_1_3"}
-    bulk_insert(user.User, **data)
+    # data = {'username': "random_str_12", "password": "random_str_12", "level": "random_int_1_3"}
+    data = {'HOST': "host", "User": "random_str_12", "Team": "custom_1_2", "NUC": 'host', "KVM": "host", "PDU": "host",
+            "BMC": "host", "PIN": "random_str_12", "SoundWave": 'random_str_12', "State": "custom_bool"}
+    bulk_insert(system.System, **data)
     # del_all(user.User)

@@ -40,7 +40,7 @@ class ProductionConfig:
 
 
 class DevelopmentConfig:
-    parser = Parser(env='develop1')
+    parser = Parser(env='develop')
     APP_ID = '*************'
     APP_SECRET = '*******************'
     # 密钥配置

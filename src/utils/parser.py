@@ -1,6 +1,9 @@
 import configparser
+import hashlib
 import os
 from collections import namedtuple
+
+from sanic import Sanic
 
 
 class Parser(object):
@@ -22,3 +25,21 @@ class Parser(object):
             named_tuple = namedtuple('_', self.__options(attr))
             obj = named_tuple(**{k: v for k, v in _attr})
             setattr(self, attr, obj)
+
+
+def md5(s, key=None):
+    def handle(data):
+        data = str(data + salt).encode()
+        res = hashlib.md5(data)
+        return res.hexdigest()
+
+    salt = Sanic.get_app().config.SECRET
+    if key:
+        if isinstance(s, dict):
+            if s.get(key):
+                s[key] = handle(s[key])
+        elif isinstance(s, list):
+            for _s in s:
+                if _s.get(key):
+                    _s[key] = handle(_s[key])
+        return s

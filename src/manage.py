@@ -3,7 +3,7 @@ from contextvars import ContextVar
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker
 
-from middlewares.my_middleware import print_on_request, print_on_response
+from middlewares.my_middleware import init_user, print_on_response
 from src import app
 
 from models import system, user
@@ -11,7 +11,7 @@ from models import system, user
 bind = create_async_engine(app.config.SQLALCHEMY_DATABASE_AIO)
 _base_model_session_ctx = ContextVar("session")
 
-app.register_middleware(print_on_request, attach_to='request')
+app.register_middleware(init_user, attach_to='request')
 app.register_middleware(print_on_response, attach_to='response')
 
 
