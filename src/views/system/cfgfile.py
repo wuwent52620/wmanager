@@ -29,11 +29,11 @@ async def upload(request):
         os.remove(file_path)
     async with aiofiles.open(file_path, 'wb') as f:
         await f.write(file.body)
-        f.close()
     return json_response(data={"msg": "上传成功", "name": name})
 
 
 @blue.get('download/<pt:str>')
+@login_required
 async def file(request, pt):
     path = os.path.join(BaseDir, "static")
     file_path = os.path.join(path, pt)

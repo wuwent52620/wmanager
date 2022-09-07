@@ -32,7 +32,7 @@ async def login(request):
                 w_user.name = person.username
                 w_user.level = person.level
                 w_user.tid = person.team_id
-                token = jwt.encode(payload=token_data(w_user.to_dict()), key=request.app.config.SECRET,
+                token = jwt.encode(payload=token_data(w_user.to_dict()), key=request.app.config.SECRET_KEY,
                                    headers=dict(typ="JWT", alg="HS256"), algorithm='HS256')
             except (KeyError, ValueError) as ex:
                 raise KeyError(f"request data must contain right info ({ex})")
@@ -65,11 +65,11 @@ async def upload(request):
         os.remove(file_path)
     async with aiofiles.open(file_path, 'wb') as f:
         await f.write(file.body)
-        f.close()
     return json_response(data={"msg": "上传成功", "name": name})
 
 
 @blue.get('/any_download/<pt:str>')
+@login_required
 async def file(request, pt):
     path = os.path.join(BaseDir, "Anything")
     file_path = os.path.join(path, pt)

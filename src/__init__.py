@@ -15,8 +15,6 @@ CORS(app)
 
 app.update_config(config['default'])  # 通过此处的更换就可以实现切换环境
 
-app.config.SECRET = "W_MANAGER_WWT"
-
 app.error_handler = CustomHandler()
 
 path = os.path.join(BaseDir, "static")  # 这里注意path是绝对路径

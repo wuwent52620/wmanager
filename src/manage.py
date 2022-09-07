@@ -1,5 +1,6 @@
 from contextvars import ContextVar
 
+from sanic.server.protocols.websocket_protocol import WebSocketProtocol
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -34,4 +35,4 @@ app.blueprint(api)
 
 # 启动服务
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=9999, debug=True, workers=4)
+    app.run(host="0.0.0.0", port=9999, workers=4, protocol=WebSocketProtocol)

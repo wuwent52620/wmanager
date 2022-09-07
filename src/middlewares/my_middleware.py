@@ -17,7 +17,7 @@ async def init_user(request):
         token = request.headers.get('token')
         if token:
             try:
-                token_data = jwt.decode(token, request.app.config.SECRET, algorithms=["HS256"])
+                token_data = jwt.decode(token, request.app.config.SECRET_KEY, algorithms=["HS256"])
             except jwt.exceptions.InvalidTokenError:
                 clean_user()
                 return False
